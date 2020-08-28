@@ -13,7 +13,7 @@ systemctl status httpd
 
 http -v
 
-echo "Welcome to this site!" > /var/www/html/index.html
+#echo "Welcome to this site!" > /var/www/html/index.html
 
 firewall-cmd --permanent --zone=public --add-service=http
 firewall-cmd --permanent --zone=public --add-service=https
