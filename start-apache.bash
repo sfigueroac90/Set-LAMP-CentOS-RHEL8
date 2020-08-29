@@ -1,4 +1,3 @@
-
 dnf update
 dnf install httpd httpd-tools
 
@@ -11,20 +10,20 @@ systemctl enable httpd
 #view status
 systemctl status httpd
 
-http -v
+httpd -v
 
 #echo "Welcome to this site!" > /var/www/html/index.html
 
-firewall-cmd --permanent --zone=public --add-service=http
-firewall-cmd --permanent --zone=public --add-service=https
+#firewall-cmd --permanent --zone=public --add-service=http
+#firewall-cmd --permanent --zone=public --add-service=https
 
-systemctl reload firewalld
+#systemctl reload firewalld
 
-chown apache:apache /var/www/html -R
+sudo chown apache:apache /var/www/html -R
 
 #By default, Apache uses the system hostname as its global ServerName. If the system hostname can’t be resolved in DNS, then you will probably see the following error after running sudo apachectl configtest command.
 
-echo "ServerName localhost">/etc/httpd/conf.d/servername.conf
+sudo echo "ServerName localhost">/etc/httpd/conf.d/servername.conf
 
 
 sudo systemctl reload httpd
